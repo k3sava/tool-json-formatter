@@ -1,0 +1,39 @@
+{
+  "name": "JSON Formatter",
+  "slug": "json-formatter",
+  "href": "/json-formatter",
+  "description": "Format, beautify, minify, and validate JSON.",
+  "icon": "{}",
+  "collections": [
+    "developers",
+    "pm"
+  ],
+  "keywords": [
+    "json",
+    "format",
+    "beautify",
+    "validate"
+  ],
+  "faq": [
+    {
+      "q": "What does the JSON formatter do?",
+      "a": "Pretty-prints minified or compact JSON with configurable indentation (2 spaces, 4 spaces, or tab), validates syntax and reports errors with line numbers, and can sort keys alphabetically."
+    },
+    {
+      "q": "Is my JSON sent anywhere?",
+      "a": "No. Formatting runs entirely in your browser. Paste sensitive API responses, tokens, or configuration without concern."
+    },
+    {
+      "q": "Can it convert JSON to other formats?",
+      "a": "Yes. Convert JSON to YAML, CSV (for flat arrays of objects), or TypeScript interface definitions."
+    },
+    {
+      "q": "Can it minify JSON?",
+      "a": "Yes. Use the Minify tab to compress formatted JSON into a single line — useful before embedding in environment variables or HTTP requests."
+    },
+    {
+      "q": "Does it validate JSON Schema?",
+      "a": "No — it validates that the input is syntactically valid JSON, not that it conforms to a specific schema."
+    }
+  ]
+}
