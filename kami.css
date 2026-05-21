@@ -1,0 +1,1396 @@
+/* kami.css — built 2026-05-21T14:51:15.463Z — do not edit directly */
+
+/* === 01-tokens.css === */
+/* ============================================================
+   KAMI CSS — Token Layer
+   Default (classic) values. Skin overrides in 02-skins.css.
+   ============================================================ */
+
+:root {
+  /* ── Surface ─────────────────────────────────────────── */
+  --kami-bg:               #fafafa;
+  --kami-surface:          #ffffff;
+  --kami-surface-solid:    #ffffff;
+  --kami-surface-elevated: #f5f5f7;
+
+  /* ── Text ────────────────────────────────────────────── */
+  --kami-text:             #1d1d1f;
+  --kami-text-muted:       #525252;
+  --kami-text-dim:         #8e8e93;
+
+  /* ── Border ──────────────────────────────────────────── */
+  --kami-border:           #e5e5ea;
+  --kami-border-strong:    #d1d1d6;
+
+  /* ── Primary CTA ─────────────────────────────────────── */
+  --kami-cta-bg:           #000000;
+  --kami-cta-bg-hover:     #1f2937;
+  --kami-cta-text:         #ffffff;
+  --kami-cta-radius:       0.5rem;
+  --kami-cta-shadow:       none;
+
+  /* ── Card ────────────────────────────────────────────── */
+  --kami-card-radius:      0.75rem;
+  --kami-card-border:      1px solid var(--kami-border);
+  --kami-card-shadow:      0 1px 3px rgba(0,0,0,0.08);
+  --kami-card-shadow-hover:0 8px 24px rgba(0,0,0,0.12);
+  --kami-card-hover-lift:  translateY(-2px);
+  --kami-card-bg:          var(--kami-surface);
+
+  /* ── Typography ──────────────────────────────────────── */
+  --kami-font-display:     system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --kami-font-body:        system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --kami-font-mono:        ui-monospace, 'JetBrains Mono', 'Fira Code', monospace;
+  --kami-heading-case:     none;
+  --kami-heading-tracking: -0.02em;
+  --kami-heading-weight:   600;
+  --kami-body-tracking:    0;
+  --kami-body-leading:     1.6;
+
+  /* ── Header chrome ───────────────────────────────────── */
+  --kami-header-height:    44px;
+  --kami-header-bg:        rgba(250,250,250,0.92);
+  --kami-header-border:    var(--kami-border);
+  --kami-header-text:      var(--kami-text);
+  --kami-header-blur:      saturate(180%) blur(12px);
+
+  /* ── Motion ──────────────────────────────────────────── */
+  --kami-motion-fast:      150ms;
+  --kami-motion-base:      220ms;
+  --kami-motion-slow:      400ms;
+  --kami-motion-ease:      cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Accent ──────────────────────────────────────────── */
+  --kami-accent:           #2563eb;
+  --kami-accent-text:      #ffffff;
+
+  /* ── Breadcrumb ──────────────────────────────────────── */
+  --kami-breadcrumb-color: var(--kami-text-dim);
+  --kami-breadcrumb-hover: var(--kami-text);
+
+  /* ── Footer ──────────────────────────────────────────── */
+  --kami-footer-bg:        var(--kami-bg);
+  --kami-footer-text:      var(--kami-text-dim);
+  --kami-footer-link:      var(--kami-text-muted);
+  --kami-footer-link-hover:var(--kami-text);
+
+  /* ── Splash ──────────────────────────────────────────── */
+  --kami-splash-bg:        var(--kami-bg);
+  --kami-splash-dot:       var(--kami-accent);
+
+  /* ── Input ───────────────────────────────────────────── */
+  --kami-input-bg:         var(--kami-surface);
+  --kami-input-border:     1px solid var(--kami-border-strong);
+  --kami-input-radius:     0.5rem;
+  --kami-input-focus:      0 0 0 2px rgba(37,99,235,0.25);
+
+  /* ── Extended token set (consumed by tools + toys chrome) ──
+     Defined as var() aliases so they reskin automatically with the
+     base tokens each skin overrides — no per-skin duplication needed.
+     ─────────────────────────────────────────────────────── */
+
+  /* Name aliases (tools use the short names; hub uses the long ones) */
+  --kami-breadcrumb:        var(--kami-breadcrumb-color);
+  --kami-footer:            var(--kami-footer-text);
+
+  /* Secondary CTA (bordered button) */
+  --kami-cta2-bg:           var(--kami-surface-solid);
+  --kami-cta2-bg-hover:     var(--kami-accent);
+  --kami-cta2-text:         var(--kami-text);
+  --kami-cta2-border:       var(--kami-border-strong);
+
+  /* Tile/card hover overlay (the flip) */
+  --kami-overlay-bg:        var(--kami-text);
+  --kami-overlay-text:      var(--kami-bg);
+  --kami-overlay-text-dim:  var(--kami-text-dim);
+
+  /* Aliases for tool-specific names */
+  --kami-card-hover-transform: var(--kami-card-hover-lift);
+  --kami-input-focus-ring:  var(--kami-input-focus);
+  --kami-caret:             var(--kami-accent);
+
+  /* Semantic status colours — intentionally constant across skins */
+  --kami-error:            #ef4444;
+  --kami-error-bg:         #fef2f2;
+  --kami-error-border:     #fecaca;
+  --kami-success:          #16a34a;
+  --kami-success-bg:       #f0fdf4;
+  --kami-success-border:   #bbf7d0;
+  --kami-warning:          #f59e0b;
+  --kami-warning-bg:       #fffbeb;
+  --kami-warning-border:   #fde68a;
+}
+
+
+/* === 02-skins.css === */
+/* ============================================================
+   KAMI CSS — Skin Layer
+   Each block overrides only tokens that differ from default.
+   ============================================================ */
+
+/* ── BRUTALIST "Concrete Press" ──────────────────────────────
+   Total Design × Mevis & Van Deursen × Berlin techno flyer.
+   Monospace on white paper. Magenta is the only color.
+   Zero radius. Offset-solid shadows. Motion = instant.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="brutalist"] {
+  --kami-bg:               #ffffff;
+  --kami-surface:          #ffffff;
+  --kami-surface-solid:    #ffffff;
+  --kami-surface-elevated: #f5f5f5;
+  --kami-text:             #000000;
+  --kami-text-muted:       #333333;
+  --kami-text-dim:         #666666;
+  --kami-border:           #000000;
+  --kami-border-strong:    #000000;
+  --kami-cta-bg:           #000000;
+  --kami-cta-bg-hover:     #222222;
+  --kami-cta-text:         #ffffff;
+  --kami-cta-radius:       0;
+  --kami-cta-shadow:       4px 4px 0 #000000;
+  --kami-card-radius:      0;
+  --kami-card-border:      1px solid #000000;
+  --kami-card-shadow:      4px 4px 0 #000000;
+  --kami-card-shadow-hover:6px 6px 0 #000000;
+  --kami-card-hover-lift:  translateY(-2px);
+  --kami-card-bg:          #ffffff;
+  --kami-font-display:     ui-monospace, 'JetBrains Mono', 'Courier New', monospace;
+  --kami-font-body:        ui-monospace, 'JetBrains Mono', 'Courier New', monospace;
+  --kami-heading-case:     uppercase;
+  --kami-heading-tracking: 0.08em;
+  --kami-heading-weight:   700;
+  --kami-header-bg:        rgba(255,255,255,0.97);
+  --kami-header-border:    #000000;
+  --kami-header-blur:      none;
+  --kami-motion-fast:      0ms;
+  --kami-motion-base:      0ms;
+  --kami-motion-slow:      0ms;
+  --kami-motion-ease:      steps(1);
+  --kami-accent:           #d946ef;
+  --kami-input-radius:     0;
+  --kami-input-focus:      0 0 0 2px #d946ef;
+}
+
+/* ── EDITORIAL "Supplement" ──────────────────────────────────
+   New Yorker × London Review of Books × Monocle.
+   Warm paper, serif display, generous whitespace.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="editorial"] {
+  --kami-bg:               #f8f5f0;
+  --kami-surface:          #fdfaf5;
+  --kami-surface-solid:    #fdfaf5;
+  --kami-surface-elevated: #f3ede4;
+  --kami-text:             #1a1209;
+  --kami-text-muted:       #4a3f2f;
+  --kami-text-dim:         #8a7a6a;
+  --kami-border:           #e8dfd0;
+  --kami-border-strong:    #d4c4a8;
+  --kami-cta-bg:           #1a1209;
+  --kami-cta-bg-hover:     #2d200f;
+  --kami-cta-text:         #f8f5f0;
+  --kami-cta-radius:       0;
+  --kami-cta-shadow:       none;
+  --kami-card-radius:      0;
+  --kami-card-border:      1px solid #d4c4a8;
+  --kami-card-shadow:      none;
+  --kami-card-shadow-hover:0 4px 16px rgba(26,18,9,0.08);
+  --kami-card-hover-lift:  none;
+  --kami-card-bg:          #fdfaf5;
+  --kami-font-display:     'Georgia', 'Times New Roman', serif;
+  --kami-font-body:        'Georgia', serif;
+  --kami-heading-case:     none;
+  --kami-heading-tracking: -0.01em;
+  --kami-heading-weight:   400;
+  --kami-body-leading:     1.8;
+  --kami-header-bg:        rgba(248,245,240,0.97);
+  --kami-header-border:    #d4c4a8;
+  --kami-motion-base:      300ms;
+  --kami-motion-slow:      500ms;
+  --kami-accent:           #8b6914;
+  --kami-input-radius:     0;
+  --kami-footer-bg:        #f3ede4;
+}
+
+/* ── TERMINAL "Phosphor" ─────────────────────────────────────
+   Green phosphor on true black. CRT nostalgia. Instant motion.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="terminal"] {
+  --kami-bg:               #000000;
+  --kami-surface:          #0a0a0a;
+  --kami-surface-solid:    #111111;
+  --kami-surface-elevated: #1a1a1a;
+  --kami-text:             #33ff33;
+  --kami-text-muted:       #22cc22;
+  --kami-text-dim:         #1a9a1a;
+  --kami-border:           #1a3a1a;
+  --kami-border-strong:    #2a5a2a;
+  --kami-cta-bg:           #33ff33;
+  --kami-cta-bg-hover:     #44ff44;
+  --kami-cta-text:         #000000;
+  --kami-cta-radius:       0;
+  --kami-cta-shadow:       0 0 8px #33ff33;
+  --kami-card-radius:      0;
+  --kami-card-border:      1px solid #2a5a2a;
+  --kami-card-shadow:      0 0 4px rgba(51,255,51,0.1);
+  --kami-card-shadow-hover:0 0 12px rgba(51,255,51,0.2);
+  --kami-card-hover-lift:  none;
+  --kami-card-bg:          #0a0a0a;
+  --kami-font-display:     'Courier New', 'Courier', monospace;
+  --kami-font-body:        'Courier New', 'Courier', monospace;
+  --kami-font-mono:        'Courier New', 'Courier', monospace;
+  --kami-heading-case:     uppercase;
+  --kami-heading-tracking: 0.12em;
+  --kami-heading-weight:   400;
+  --kami-header-bg:        rgba(0,0,0,0.98);
+  --kami-header-border:    #2a5a2a;
+  --kami-header-blur:      none;
+  --kami-motion-fast:      0ms;
+  --kami-motion-base:      0ms;
+  --kami-motion-slow:      0ms;
+  --kami-motion-ease:      steps(1);
+  --kami-accent:           #33ff33;
+  --kami-accent-text:      #000000;
+  --kami-input-bg:         #0a0a0a;
+  --kami-input-radius:     0;
+  --kami-input-focus:      0 0 0 2px #33ff33;
+  --kami-splash-bg:        #000000;
+  --kami-splash-dot:       #33ff33;
+  --kami-footer-bg:        #000000;
+  --kami-footer-text:      #1a9a1a;
+  --kami-footer-link:      #22cc22;
+  --kami-footer-link-hover:#33ff33;
+  --kami-breadcrumb-color: #1a9a1a;
+  --kami-breadcrumb-hover: #33ff33;
+}
+
+/* ── ZEN "Breath" ────────────────────────────────────────────
+   Off-white, near-invisible borders, maximum breathing room.
+   Noto Serif JP. Slow, meditative motion.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="zen"] {
+  --kami-bg:               #f7f5f2;
+  --kami-surface:          #faf9f7;
+  --kami-surface-solid:    #faf9f7;
+  --kami-surface-elevated: #f2f0ec;
+  --kami-text:             #2d2926;
+  --kami-text-muted:       #7a7068;
+  --kami-text-dim:         #b0a898;
+  --kami-border:           rgba(0,0,0,0.06);
+  --kami-border-strong:    rgba(0,0,0,0.12);
+  --kami-cta-bg:           #2d2926;
+  --kami-cta-bg-hover:     #3d3930;
+  --kami-cta-text:         #f7f5f2;
+  --kami-cta-radius:       0.25rem;
+  --kami-cta-shadow:       none;
+  --kami-card-radius:      0.5rem;
+  --kami-card-border:      1px solid rgba(0,0,0,0.08);
+  --kami-card-shadow:      0 1px 2px rgba(0,0,0,0.04);
+  --kami-card-shadow-hover:0 4px 16px rgba(0,0,0,0.08);
+  --kami-card-hover-lift:  none;
+  --kami-card-bg:          #faf9f7;
+  --kami-font-display:     'Noto Serif JP', 'Noto Serif', Georgia, serif;
+  --kami-font-body:        'Noto Serif JP', 'Noto Serif', Georgia, serif;
+  --kami-heading-case:     none;
+  --kami-heading-tracking: 0.02em;
+  --kami-heading-weight:   300;
+  --kami-body-leading:     1.9;
+  --kami-header-bg:        rgba(247,245,242,0.97);
+  --kami-header-border:    rgba(0,0,0,0.06);
+  --kami-motion-base:      400ms;
+  --kami-motion-slow:      700ms;
+  --kami-accent:           #8a7968;
+  --kami-input-radius:     0.25rem;
+  --kami-footer-bg:        #f2f0ec;
+}
+
+/* ── GLASS "Liquid Light" ────────────────────────────────────
+   Apple visionOS / iOS 18 spatial UI.
+   Frosted blur, translucent layers, iridescent accents.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="glass"] {
+  --kami-bg:               linear-gradient(135deg, #e8f2fd 0%, #ede8fd 40%, #fde8f4 100%);
+  --kami-surface:          rgba(255,255,255,0.65);
+  --kami-surface-solid:    rgba(255,255,255,0.85);
+  --kami-surface-elevated: rgba(255,255,255,0.80);
+  --kami-text:             #1d1d1f;
+  --kami-text-muted:       #48484a;
+  --kami-text-dim:         #8e8e93;
+  --kami-border:           rgba(255,255,255,0.45);
+  --kami-border-strong:    rgba(0,0,0,0.10);
+  --kami-cta-bg:           rgba(0,0,0,0.80);
+  --kami-cta-bg-hover:     rgba(0,0,0,0.90);
+  --kami-cta-text:         #ffffff;
+  --kami-cta-radius:       0.75rem;
+  --kami-cta-shadow:       0 4px 12px rgba(0,0,0,0.15);
+  --kami-card-radius:      1.25rem;
+  --kami-card-border:      1px solid rgba(255,255,255,0.5);
+  --kami-card-shadow:      0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  --kami-card-shadow-hover:0 16px 48px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
+  --kami-card-hover-lift:  translateY(-4px);
+  --kami-card-bg:          rgba(255,255,255,0.65);
+  --kami-font-display:     system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --kami-heading-weight:   500;
+  --kami-header-bg:        rgba(240,245,255,0.75);
+  --kami-header-border:    rgba(255,255,255,0.4);
+  --kami-header-blur:      saturate(200%) blur(20px);
+  --kami-motion-base:      300ms;
+  --kami-motion-ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --kami-accent:           #5e5ce6;
+  --kami-accent-text:      #ffffff;
+  --kami-input-bg:         rgba(255,255,255,0.7);
+  --kami-input-radius:     0.75rem;
+  --kami-splash-bg:        rgba(232,242,253,0.90);
+}
+
+/* ── MATERIAL "Dynamic Elevation" ────────────────────────────
+   Google Material Design 3.
+   Tonal surfaces, dynamic color, pill CTAs, elevation shadows.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="material"] {
+  --kami-bg:               #fffbfe;
+  --kami-surface:          #fffbfe;
+  --kami-surface-solid:    #fffbfe;
+  --kami-surface-elevated: #f7f2fa;
+  --kami-text:             #1c1b1f;
+  --kami-text-muted:       #49454f;
+  --kami-text-dim:         #79747e;
+  --kami-border:           #cac4d0;
+  --kami-border-strong:    #938f99;
+  --kami-cta-bg:           #6750a4;
+  --kami-cta-bg-hover:     #7965af;
+  --kami-cta-text:         #ffffff;
+  --kami-cta-radius:       1.25rem;
+  --kami-cta-shadow:       0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --kami-card-radius:      0.75rem;
+  --kami-card-border:      none;
+  --kami-card-shadow:      0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --kami-card-shadow-hover:0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+  --kami-card-hover-lift:  translateY(-2px);
+  --kami-card-bg:          #f7f2fa;
+  --kami-font-display:     'Roboto', system-ui, sans-serif;
+  --kami-font-body:        'Roboto', system-ui, sans-serif;
+  --kami-heading-case:     none;
+  --kami-heading-tracking: 0;
+  --kami-heading-weight:   500;
+  --kami-header-bg:        rgba(255,251,254,0.95);
+  --kami-header-border:    #cac4d0;
+  --kami-motion-base:      300ms;
+  --kami-motion-ease:      cubic-bezier(0.2, 0, 0, 1);
+  --kami-accent:           #6750a4;
+  --kami-accent-text:      #ffffff;
+  --kami-input-bg:         #f7f2fa;
+  --kami-input-radius:     0.25rem;
+  --kami-input-focus:      0 0 0 2px rgba(103,80,164,0.25);
+  --kami-footer-bg:        #f7f2fa;
+}
+
+/* ── METRO "Fluent Grid" ─────────────────────────────────────
+   Microsoft Fluent 2 / Windows 11.
+   Flat, dense, strong blue accent, Segoe UI.
+   ──────────────────────────────────────────────────────────── */
+[data-theme="metro"] {
+  --kami-bg:               #f3f3f3;
+  --kami-surface:          #ffffff;
+  --kami-surface-solid:    #ffffff;
+  --kami-surface-elevated: #e8e8e8;
+  --kami-text:             #000000;
+  --kami-text-muted:       #404040;
+  --kami-text-dim:         #767676;
+  --kami-border:           #e0e0e0;
+  --kami-border-strong:    #c0c0c0;
+  --kami-cta-bg:           #0078d4;
+  --kami-cta-bg-hover:     #106ebe;
+  --kami-cta-text:         #ffffff;
+  --kami-cta-radius:       0.25rem;
+  --kami-cta-shadow:       none;
+  --kami-card-radius:      0.5rem;
+  --kami-card-border:      1px solid #e0e0e0;
+  --kami-card-shadow:      0 2px 4px rgba(0,0,0,0.06);
+  --kami-card-shadow-hover:0 4px 12px rgba(0,0,0,0.10);
+  --kami-card-hover-lift:  none;
+  --kami-card-bg:          #ffffff;
+  --kami-font-display:     'Segoe UI', system-ui, -apple-system, sans-serif;
+  --kami-font-body:        'Segoe UI', system-ui, -apple-system, sans-serif;
+  --kami-heading-case:     none;
+  --kami-heading-tracking: -0.01em;
+  --kami-heading-weight:   600;
+  --kami-header-bg:        rgba(243,243,243,0.95);
+  --kami-header-border:    #e0e0e0;
+  --kami-motion-base:      200ms;
+  --kami-motion-ease:      cubic-bezier(0.1, 0.9, 0.2, 1);
+  --kami-accent:           #0078d4;
+  --kami-accent-text:      #ffffff;
+  --kami-input-radius:     0.25rem;
+  --kami-input-focus:      0 0 0 2px rgba(0,120,212,0.25);
+  --kami-footer-bg:        #e8e8e8;
+}
+
+
+/* === 03-dark.css === */
+/* ============================================================
+   KAMI CSS — Dark Mode
+   Applied when html[data-dark] is set (manual toggle).
+   Also applied when prefers-color-scheme: dark for default/classic.
+   Skins with own colour systems (terminal, glass) are excluded.
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --kami-bg:               #111111;
+    --kami-surface:          rgba(28,28,30,0.85);
+    --kami-surface-solid:    #1c1c1e;
+    --kami-surface-elevated: #2c2c2e;
+    --kami-text:             #f5f5f7;
+    --kami-text-muted:       #aeaeb2;
+    --kami-text-dim:         #636366;
+    --kami-border:           rgba(60,60,67,0.29);
+    --kami-border-strong:    #38383a;
+    --kami-cta-bg:           #f5f5f7;
+    --kami-cta-bg-hover:     #e0e0e2;
+    --kami-cta-text:         #111111;
+    --kami-card-shadow:      0 1px 3px rgba(0,0,0,0.4);
+    --kami-card-shadow-hover:0 8px 24px rgba(0,0,0,0.5);
+    --kami-header-bg:        rgba(17,17,17,0.92);
+    --kami-header-border:    rgba(60,60,67,0.29);
+    --kami-accent:           #4db3ff;
+    --kami-input-bg:         #1c1c1e;
+    --kami-footer-bg:        #111111;
+  }
+}
+
+html[data-dark]:not([data-theme]),
+html[data-dark][data-theme="default"] {
+  --kami-bg:               #111111;
+  --kami-surface:          rgba(28,28,30,0.85);
+  --kami-surface-solid:    #1c1c1e;
+  --kami-surface-elevated: #2c2c2e;
+  --kami-text:             #f5f5f7;
+  --kami-text-muted:       #aeaeb2;
+  --kami-text-dim:         #636366;
+  --kami-border:           rgba(60,60,67,0.29);
+  --kami-border-strong:    #38383a;
+  --kami-cta-bg:           #f5f5f7;
+  --kami-cta-bg-hover:     #e0e0e2;
+  --kami-cta-text:         #111111;
+  --kami-card-shadow:      0 1px 3px rgba(0,0,0,0.4);
+  --kami-card-shadow-hover:0 8px 24px rgba(0,0,0,0.5);
+  --kami-header-bg:        rgba(17,17,17,0.92);
+  --kami-header-border:    rgba(60,60,67,0.29);
+  --kami-accent:           #4db3ff;
+  --kami-input-bg:         #1c1c1e;
+  --kami-footer-bg:        #111111;
+}
+
+/* Brutalist dark — invert black/white, keep magenta */
+html[data-dark][data-theme="brutalist"] {
+  --kami-bg:               #000000;
+  --kami-surface:          #000000;
+  --kami-surface-solid:    #111111;
+  --kami-text:             #ffffff;
+  --kami-text-muted:       #cccccc;
+  --kami-text-dim:         #888888;
+  --kami-border:           #ffffff;
+  --kami-border-strong:    #ffffff;
+  --kami-cta-bg:           #ffffff;
+  --kami-cta-text:         #000000;
+  --kami-card-border:      1px solid #ffffff;
+  --kami-card-shadow:      4px 4px 0 #ffffff;
+  --kami-card-shadow-hover:6px 6px 0 #ffffff;
+  --kami-card-bg:          #000000;
+  --kami-header-bg:        rgba(0,0,0,0.98);
+  --kami-header-border:    #ffffff;
+  --kami-footer-bg:        #000000;
+}
+
+/* Editorial dark — warm dark paper */
+html[data-dark][data-theme="editorial"] {
+  --kami-bg:               #1a1410;
+  --kami-surface:          #211a13;
+  --kami-surface-solid:    #211a13;
+  --kami-text:             #e8ddd0;
+  --kami-text-muted:       #b0a090;
+  --kami-text-dim:         #6a5a4a;
+  --kami-border:           #3a2e22;
+  --kami-border-strong:    #4a3e2e;
+  --kami-cta-bg:           #e8ddd0;
+  --kami-cta-text:         #1a1410;
+  --kami-card-border:      1px solid #3a2e22;
+  --kami-card-bg:          #211a13;
+  --kami-header-bg:        rgba(26,20,16,0.97);
+  --kami-footer-bg:        #141008;
+}
+
+/* Zen dark — deep grey serenity */
+html[data-dark][data-theme="zen"] {
+  --kami-bg:               #1a1917;
+  --kami-surface:          #201f1c;
+  --kami-surface-solid:    #201f1c;
+  --kami-text:             #e8e4de;
+  --kami-text-muted:       #a09880;
+  --kami-text-dim:         #5a5248;
+  --kami-border:           rgba(255,255,255,0.06);
+  --kami-border-strong:    rgba(255,255,255,0.12);
+  --kami-cta-bg:           #e8e4de;
+  --kami-cta-text:         #1a1917;
+  --kami-card-border:      1px solid rgba(255,255,255,0.08);
+  --kami-card-bg:          #201f1c;
+  --kami-header-bg:        rgba(26,25,23,0.97);
+  --kami-footer-bg:        #141310;
+}
+
+/* Glass dark — deep space frost */
+html[data-dark][data-theme="glass"] {
+  --kami-bg:               linear-gradient(135deg, #0d1829 0%, #160d29 40%, #1a0d1f 100%);
+  --kami-surface:          rgba(30,30,45,0.70);
+  --kami-surface-solid:    rgba(30,30,45,0.90);
+  --kami-text:             #f5f5f7;
+  --kami-text-muted:       #aeaeb2;
+  --kami-text-dim:         #636366;
+  --kami-border:           rgba(255,255,255,0.12);
+  --kami-border-strong:    rgba(255,255,255,0.20);
+  --kami-card-bg:          rgba(30,30,45,0.65);
+  --kami-card-shadow:      0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  --kami-header-bg:        rgba(10,10,30,0.80);
+}
+
+/* Material dark — MD3 dark scheme */
+html[data-dark][data-theme="material"] {
+  --kami-bg:               #1c1b1f;
+  --kami-surface:          #1c1b1f;
+  --kami-surface-solid:    #1c1b1f;
+  --kami-surface-elevated: #2b2930;
+  --kami-text:             #e6e1e5;
+  --kami-text-muted:       #cac4d0;
+  --kami-text-dim:         #938f99;
+  --kami-border:           #49454f;
+  --kami-border-strong:    #938f99;
+  --kami-cta-bg:           #d0bcff;
+  --kami-cta-text:         #381e72;
+  --kami-card-bg:          #2b2930;
+  --kami-card-shadow:      0 1px 3px rgba(0,0,0,0.4);
+  --kami-header-bg:        rgba(28,27,31,0.95);
+  --kami-header-border:    #49454f;
+  --kami-footer-bg:        #2b2930;
+}
+
+/* Metro dark — Fluent dark mode */
+html[data-dark][data-theme="metro"] {
+  --kami-bg:               #202020;
+  --kami-surface:          #2c2c2c;
+  --kami-surface-solid:    #2c2c2c;
+  --kami-surface-elevated: #383838;
+  --kami-text:             #ffffff;
+  --kami-text-muted:       #c0c0c0;
+  --kami-text-dim:         #808080;
+  --kami-border:           #3c3c3c;
+  --kami-border-strong:    #545454;
+  --kami-cta-bg:           #4da6ff;
+  --kami-card-bg:          #2c2c2c;
+  --kami-card-border:      1px solid #3c3c3c;
+  --kami-header-bg:        rgba(32,32,32,0.95);
+  --kami-header-border:    #3c3c3c;
+  --kami-footer-bg:        #1c1c1c;
+}
+
+
+/* === 04-layout.css === */
+/* ============================================================
+   KAMI CSS — Layout Layer
+   Structural classes for header, footer, breadcrumb, card.
+   All values read from tokens — no hardcoded colours.
+   ============================================================ */
+
+/* ── Base reset (scoped — only when kami.css is loaded) ───── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── Body defaults ────────────────────────────────────────── */
+body {
+  margin: 0;
+  background: var(--kami-bg);
+  color: var(--kami-text);
+  font-family: var(--kami-font-body);
+  font-size: 16px;
+  line-height: var(--kami-body-leading);
+  letter-spacing: var(--kami-body-tracking);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Page offset (add to body or main when header is fixed) ── */
+.kami-page {
+  padding-top: var(--kami-header-height);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HEADER
+   Fixed top bar, full-width, three-column flex layout.
+   ═══════════════════════════════════════════════════════════ */
+.kami-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--kami-header-height);
+  display: flex;
+  align-items: center;
+  background: var(--kami-header-bg);
+  border-bottom: 1px solid var(--kami-header-border);
+  color: var(--kami-header-text, var(--kami-text));
+  font-family: var(--kami-font-body);
+  -webkit-backdrop-filter: var(--kami-header-blur);
+  backdrop-filter: var(--kami-header-blur);
+  z-index: 100;
+}
+
+.kami-header-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  min-width: 120px;
+}
+
+.kami-header-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 8px;
+}
+
+.kami-header-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  min-width: 120px;
+  justify-content: flex-end;
+}
+
+.kami-header-name {
+  font-family: var(--kami-font-display);
+  font-size: 0.78rem;
+  font-weight: var(--kami-heading-weight);
+  text-transform: var(--kami-heading-case);
+  letter-spacing: var(--kami-heading-tracking);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.kami-header-desc {
+  font-size: 0.62rem;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 1px;
+}
+
+.kami-header-crumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.62rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kami-header-crumb a {
+  color: var(--kami-breadcrumb-color);
+  text-decoration: none;
+  transition: color var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-header-crumb a:hover {
+  color: var(--kami-breadcrumb-hover);
+}
+
+.kami-header-crumb-sep {
+  opacity: 0.35;
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BREADCRUMB (standalone, used in Next.js apps)
+   ═══════════════════════════════════════════════════════════ */
+.kami-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-family: var(--kami-font-body);
+  color: var(--kami-breadcrumb-color);
+}
+
+.kami-breadcrumb a {
+  color: var(--kami-breadcrumb-color);
+  text-decoration: none;
+  transition: color var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-breadcrumb a:hover {
+  color: var(--kami-breadcrumb-hover);
+}
+
+.kami-breadcrumb-sep {
+  opacity: 0.35;
+  user-select: none;
+}
+
+.kami-breadcrumb [aria-current="page"] {
+  color: var(--kami-text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   Three-row layout: AEO links, sister sites, credit.
+   ═══════════════════════════════════════════════════════════ */
+.kami-footer {
+  width: 100%;
+  background: var(--kami-footer-bg);
+  color: var(--kami-footer-text);
+  border-top: 1px solid var(--kami-border);
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--kami-font-body);
+}
+
+.kami-footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kami-footer-nav a {
+  color: var(--kami-footer-link);
+  text-decoration: none;
+  transition: color var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-footer-nav a:hover {
+  color: var(--kami-footer-link-hover);
+}
+
+.kami-footer-aeo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.kami-footer-aeo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kami-footer-aeo a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.kami-footer-sep {
+  opacity: 0.35;
+  user-select: none;
+}
+
+.kami-footer-current {
+  font-weight: 600;
+  color: var(--kami-text);
+}
+
+.kami-footer-credit {
+  font-size: 0.68rem;
+  opacity: 0.38;
+  text-align: center;
+}
+
+.kami-footer-credit a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.kami-footer-credit a:hover {
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════════════════════ */
+.kami-card {
+  background: var(--kami-card-bg);
+  border: var(--kami-card-border);
+  border-radius: var(--kami-card-radius);
+  box-shadow: var(--kami-card-shadow);
+  padding: 20px;
+  transition:
+    box-shadow var(--kami-motion-base) var(--kami-motion-ease),
+    transform var(--kami-motion-base) var(--kami-motion-ease);
+}
+
+.kami-card:hover {
+  box-shadow: var(--kami-card-shadow-hover);
+  transform: var(--kami-card-hover-lift, none);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   THEME PILL (in header left)
+   ═══════════════════════════════════════════════════════════ */
+.kami-theme-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--kami-font-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  background: transparent;
+  color: var(--kami-text-dim);
+  border: 1px solid var(--kami-border-strong);
+  border-radius: var(--kami-cta-radius);
+  padding: 3px 7px;
+  line-height: 1;
+  transition:
+    color var(--kami-motion-fast) var(--kami-motion-ease),
+    border-color var(--kami-motion-fast) var(--kami-motion-ease);
+  white-space: nowrap;
+}
+
+.kami-theme-pill:hover {
+  color: var(--kami-text);
+  border-color: var(--kami-border-strong);
+}
+
+.kami-theme-pill-icon {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHARE BUTTON
+   ═══════════════════════════════════════════════════════════ */
+.kami-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--kami-font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  background: var(--kami-surface-solid);
+  color: var(--kami-text);
+  border: var(--kami-card-border);
+  border-radius: var(--kami-card-radius);
+  padding: 4px 12px;
+  height: 30px;
+  transition:
+    background var(--kami-motion-fast) var(--kami-motion-ease),
+    opacity var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-share-btn:hover {
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHORTCUT HINT (top-right in header)
+   ═══════════════════════════════════════════════════════════ */
+.kami-shortcut-hint {
+  font-size: 0.62rem;
+  opacity: 0.38;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--kami-font-body);
+  white-space: nowrap;
+}
+
+.kami-shortcut-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 0 3px;
+  font-family: var(--kami-font-mono);
+  font-size: 0.58rem;
+  min-width: 16px;
+  height: 14px;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CTA BUTTON
+   ═══════════════════════════════════════════════════════════ */
+.kami-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--kami-cta-bg);
+  color: var(--kami-cta-text);
+  border: none;
+  border-radius: var(--kami-cta-radius);
+  box-shadow: var(--kami-cta-shadow, none);
+  padding: 8px 20px;
+  font-family: var(--kami-font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: var(--kami-heading-case);
+  letter-spacing: var(--kami-heading-tracking);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--kami-motion-fast) var(--kami-motion-ease),
+    opacity var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-btn:hover {
+  background: var(--kami-cta-bg-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE BAR (thin top accent stripe on mobile)
+   ═══════════════════════════════════════════════════════════ */
+.kami-mobile-bar {
+  display: none;
+  height: 2px;
+  background: var(--kami-accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+}
+
+@media (max-width: 640px) {
+  .kami-mobile-bar {
+    display: block;
+  }
+
+  .kami-header-desc {
+    display: none;
+  }
+
+  .kami-shortcut-hint {
+    display: none;
+  }
+
+  .kami-header-left,
+  .kami-header-right {
+    min-width: 80px;
+    padding: 0 8px;
+  }
+}
+
+
+/* === 05-chrome.css === */
+/* ============================================================
+   KAMI CSS — Chrome Layer
+   Splash overlay, FAQ, related strip, shortcut overlay.
+   Used by toy HTML (injected by aggregator) and Next.js apps.
+   ============================================================ */
+
+/* ═══════════════════════════════════════════════════════════
+   SPLASH OVERLAY
+   sessionStorage-gated per toy. Dismissed on any interaction.
+   ═══════════════════════════════════════════════════════════ */
+.kami-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--kami-splash-bg);
+  font-family: var(--kami-font-body);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.kami-splash.kami-splash--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kami-splash-name {
+  font-family: var(--kami-font-display);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: var(--kami-heading-weight);
+  text-transform: var(--kami-heading-case);
+  letter-spacing: var(--kami-heading-tracking);
+  color: var(--kami-text);
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.kami-splash-tag {
+  font-size: 0.85rem;
+  color: var(--kami-text-muted);
+  max-width: 40ch;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.kami-splash-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--kami-splash-dot);
+  margin-top: 24px;
+  animation: kamiBlink 1.2s ease-in-out infinite;
+}
+
+.kami-splash-skip {
+  font-size: 0.68rem;
+  color: var(--kami-text-dim);
+  margin-top: 16px;
+  text-align: center;
+}
+
+.kami-splash-skip kbd {
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 0 3px;
+  font-size: 0.6rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ SECTION
+   Rendered below fold in toys (shell.js) and tools (ToolShell).
+   ═══════════════════════════════════════════════════════════ */
+.kami-faq {
+  margin: 64px auto 0;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--kami-border);
+  max-width: 660px;
+  font-family: var(--kami-font-body);
+}
+
+.kami-faq__heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kami-text-dim);
+  margin: 0 0 24px;
+}
+
+.kami-faq__entry {
+  margin-bottom: 20px;
+}
+
+.kami-faq__entry:last-child {
+  margin-bottom: 0;
+}
+
+.kami-faq__q {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--kami-text);
+  margin: 0 0 5px;
+  line-height: 1.4;
+}
+
+.kami-faq__a {
+  font-size: 0.84rem;
+  color: var(--kami-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NATIVE NOTE (iOS/iPadOS availability callout)
+   ═══════════════════════════════════════════════════════════ */
+.kami-native-note {
+  margin: 32px auto 0;
+  padding: 16px 20px;
+  max-width: 660px;
+  border: 1px solid var(--kami-border-strong);
+  border-radius: var(--kami-card-radius);
+  font-size: 0.82rem;
+  color: var(--kami-text-muted);
+  line-height: 1.5;
+  font-family: var(--kami-font-body);
+}
+
+.kami-native-note a {
+  color: var(--kami-accent);
+  text-decoration: none;
+}
+
+.kami-native-note a:hover {
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RELATED STRIP
+   ═══════════════════════════════════════════════════════════ */
+.kami-related {
+  margin: 28px auto 0;
+  max-width: 660px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--kami-font-body);
+}
+
+.kami-related__heading {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kami-text-dim);
+  white-space: nowrap;
+}
+
+.kami-related__list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kami-related__item {
+  font-size: 0.78rem;
+  color: var(--kami-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.kami-related__item:hover {
+  color: var(--kami-text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHORTCUTS OVERLAY (? key)
+   ═══════════════════════════════════════════════════════════ */
+.kami-shortcuts-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--kami-font-body);
+  backdrop-filter: blur(4px);
+}
+
+.kami-shortcuts-overlay__panel {
+  background: var(--kami-surface-solid);
+  border: 1px solid var(--kami-border-strong);
+  border-radius: var(--kami-card-radius);
+  box-shadow: var(--kami-card-shadow-hover);
+  padding: 28px;
+  min-width: 260px;
+  max-width: 400px;
+  width: 90vw;
+}
+
+.kami-shortcuts-overlay__title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--kami-text-dim);
+  margin-bottom: 20px;
+}
+
+.kami-shortcuts-overlay__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.84rem;
+  color: var(--kami-text);
+}
+
+.kami-shortcuts-overlay__row kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--kami-border-strong);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--kami-font-mono);
+  font-size: 0.72rem;
+  min-width: 24px;
+  background: var(--kami-surface-elevated);
+  color: var(--kami-text);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WA-BOTTOM (toy footer — used in standalone toy HTML)
+   ═══════════════════════════════════════════════════════════ */
+.wa-bottom {
+  width: 100%;
+  padding: 20px 16px;
+  border-top: 1px solid var(--kami-border);
+  background: var(--kami-footer-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--kami-font-body);
+  font-size: 0.72rem;
+  color: var(--kami-footer-text);
+}
+
+.wa-bottom .row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wa-bottom .sep {
+  opacity: 0.35;
+}
+
+.wa-bottom a {
+  color: var(--kami-footer-link);
+  text-decoration: none;
+  transition: color var(--kami-motion-fast) var(--kami-motion-ease);
+}
+
+.wa-bottom a:hover {
+  color: var(--kami-footer-link-hover);
+}
+
+.wa-bottom .current {
+  font-weight: 600;
+  color: var(--kami-text);
+}
+
+/* ── Tool FAQ (used by little-tools ToolShell) ────────────── */
+.tool-faq {
+  margin: 64px auto 0;
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--kami-border);
+  max-width: 660px;
+  font-family: var(--kami-font-body);
+}
+
+.tool-faq-heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kami-text-dim);
+  margin: 0 0 24px;
+}
+
+.tool-faq-list {
+  margin: 0;
+  padding: 0;
+}
+
+.tool-faq-item {
+  margin-bottom: 20px;
+}
+
+.tool-faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.tool-faq-question {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--kami-text);
+  margin: 0 0 5px;
+}
+
+.tool-faq-answer {
+  font-size: 0.84rem;
+  color: var(--kami-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+
+/* === 06-animations.css === */
+/* ============================================================
+   KAMI CSS — Animations
+   ============================================================ */
+
+@keyframes kamiBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+@keyframes kamiScanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes kamiSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kamiSlideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kamiFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Terminal scanline effect (applied via ::after on body in terminal skin) */
+[data-theme="terminal"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  z-index: 9999;
+}
+
+/* Theme transition (applied to all elements when theme changes) */
+html[data-theme] body,
+html[data-theme] body * {
+  transition:
+    background-color var(--kami-motion-base) var(--kami-motion-ease),
+    color var(--kami-motion-base) var(--kami-motion-ease),
+    border-color var(--kami-motion-base) var(--kami-motion-ease),
+    box-shadow var(--kami-motion-base) var(--kami-motion-ease);
+}
+
+/* Glass background is a gradient — needs special handling */
+[data-theme="glass"] body {
+  background: var(--kami-bg);
+  min-height: 100vh;
+}
